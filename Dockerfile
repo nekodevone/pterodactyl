@@ -4,7 +4,8 @@ ENV USER=container HOME=/home/container
 # Install prerequisites
 RUN dpkg --add-architecture i386 \
   && apt-get update \
-  && apt-get install -y lib32gcc1
+  && apt-get install -y lib32gcc1 \
+  && apt-get clean -y
 
 # Create user
 RUN adduser --disabled-password $USER \
